@@ -34,9 +34,11 @@ class EntrevistaUpdate(LoginRequiredMixin, UpdateView):
     success_url = reverse_lazy("EntrevistaList")
     fields = ["Titulo", "Localidad", "Entrevistado", "Anecdota", "Corresponsal"]
 
+
 class EntrevistaDelete(LoginRequiredMixin, DeleteView):
     model = EntrevistasModel
     success_url = reverse_lazy("EntrevistaList")
+
 
 class EntrevistaLogin(LoginView):
     template_name = 'Entrevistas/Entrevistaslogin.html'
@@ -47,8 +49,9 @@ class EntrevistaLogout(LogoutView):
     template_name = 'Entrevistas/Entrevistaslogout.html'
 
 class SignUpView(SuccessMessageMixin, CreateView):
-  template_name = 'Entrevistas/Entrevistas_crear_cuenta.html'
-  success_url = reverse_lazy('EntrevistaLogin')
-  form_class = UserCreationForm
-  success_message = "Tu perfil de corresponsal a sido creado satisfactoriamente."
+    template_name = 'Entrevistas/Entrevistas_crear_cuenta.html'
+    success_url = reverse_lazy('EntrevistaLogin')
+    form_class = UserCreationForm
+    success_message = "Tu perfil de corresponsal a sido creado satisfactoriamente."
+
 # Create your views here.

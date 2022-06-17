@@ -1,0 +1,12 @@
+{% if object_list %}
+    {% for Entrevista in object_list %}
+    <li>
+         {{Entrevista.Titulo}} 
+         <a href="{% url 'EntrevistaDetail' Entrevista.id %}">Detalles</a>
+         <a href="{% url 'EntrevistaDelete' Entrevista.id %}">Borrar</a>
+         <a href="{% url 'EntrevistaUpdate' Entrevista.id %}">Actualizar</a>
+    </li>
+    {% endfor %}
+{% else %}
+  <h1> No hay entrevistas</h1>
+{% endif %}

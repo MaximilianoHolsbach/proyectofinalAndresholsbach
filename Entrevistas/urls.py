@@ -9,6 +9,6 @@ urlpatterns = [
     path('borrar/<pk>/',views.EntrevistaDelete.as_view(), name="EntrevistaDelete"),
     path('entrar/',views.EntrevistaLogin.as_view(), name="EntrevistaLogin"),
     path('salir/',views.EntrevistaLogin.as_view(), name="EntrevistaLogout"),
-    path('crearperfil/',views.SignUpView.as_view(), name="EntrevistaSignUpView"),
+    path('soy/',views.About.as_view(), name="EntrevistaAbout"),
 ]
 

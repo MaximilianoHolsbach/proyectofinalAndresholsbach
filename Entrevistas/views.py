@@ -7,7 +7,14 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.views import LoginView, LogoutView
 from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib.auth.forms import UserCreationForm
+from django.views import View
 from Entrevistas.models import EntrevistasModel
+
+class About(View):
+
+    def get(self, request, *args, **kwargs):
+        return render(request, "Entrevistas/Entrevistaabout.html", {})
+
 
 class EntrevistaList(ListView):
     model = EntrevistasModel

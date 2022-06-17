@@ -1,0 +1,6 @@
+<a href="{% url 'EntrevistaList' %}">Volver a listas</a>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_ul }}
+    <input type="submit" value="Crear Corresponsal">
+</form>

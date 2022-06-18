@@ -3,7 +3,7 @@ from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView, TemplateView
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.forms import AuthenticationForm
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.auth.views import LoginView, LogoutView
 from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib.auth.forms import UserCreationForm
@@ -28,16 +28,25 @@ class EntrevistaCreate(LoginRequiredMixin, CreateView):
     model = EntrevistasModel
     success_url = reverse_lazy("EntrevistaList")
     fields = ["Titulo", "Localidad", "Entrevistado", "Anecdota", "Corresponsal"]
+    def form_valid(self, form):
+        form.instance.Corresponsal = self.request.user
+        return super().form_valid(form)
 
-class EntrevistaUpdate(LoginRequiredMixin, UpdateView):
+class EntrevistaUpdate(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = EntrevistasModel
     success_url = reverse_lazy("EntrevistaList")
     fields = ["Titulo", "Localidad", "Entrevistado", "Anecdota", "Corresponsal"]
+    def test_func(self):
+        exist = EntrevistasModel.objects.filter(Corresponsal=self.request.user.id, id=self.kwargs['pk'])
+        return True if exist else False
 
 
-class EntrevistaDelete(LoginRequiredMixin, DeleteView):
+class EntrevistaDelete(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = EntrevistasModel
     success_url = reverse_lazy("EntrevistaList")
+    def test_func(self):
+        exist = EntrevistasModel.objects.filter(Corresponsal=self.request.user.id, id=self.kwargs['pk'])
+        return True if exist else False
 
 
 class EntrevistaLogin(LoginView):

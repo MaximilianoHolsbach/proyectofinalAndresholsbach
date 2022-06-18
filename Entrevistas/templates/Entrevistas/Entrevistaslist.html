@@ -1,6 +1,6 @@
 {% if user.is_authenticated %}
   <a href="{% url 'EntrevistaLogout' %}">Salir</a>
-  <a href="{% url 'EntrevistaCreate' %}">Nuevo Blog</a>
+  <a href="{% url 'EntrevistaCreate' %}">Iniciar entrevista</a>
   <a href="{% url 'CorresponsalesProfile' user.id %}">Perfil {{user.username}}</a>
 {% else %}
   <a href="{% url 'EntrevistaLogin' %}">Entrar</a>

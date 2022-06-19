@@ -9,6 +9,7 @@ class EntrevistasModel(models.Model):
     Localidad = models.CharField(max_length=100)
     Entrevistado = models.CharField(max_length=100)
     Anecdota = models.TextField()
+    Imagen = models.ImageField(upload_to="Fotos/", null=True, blank=True)
     Corresponsal = models.ForeignKey(User, on_delete=models.CASCADE)
     Finalizado = models.DateField(auto_now_add=True)
 

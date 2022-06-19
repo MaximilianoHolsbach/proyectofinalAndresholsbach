@@ -27,7 +27,7 @@ class EntrevistaDetail(DetailView):
 class EntrevistaCreate(LoginRequiredMixin, CreateView):
     model = EntrevistasModel
     success_url = reverse_lazy("EntrevistaList")
-    fields = ["Titulo", "Localidad", "Entrevistado", "Anecdota", "Corresponsal"]
+    fields = ["Titulo", "Localidad", "Entrevistado", "Anecdota", "Corresponsal","Imagen"]
     def form_valid(self, form):
         form.instance.Corresponsal = self.request.user
         return super().form_valid(form)
@@ -35,7 +35,7 @@ class EntrevistaCreate(LoginRequiredMixin, CreateView):
 class EntrevistaUpdate(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = EntrevistasModel
     success_url = reverse_lazy("EntrevistaList")
-    fields = ["Titulo", "Localidad", "Entrevistado", "Anecdota", "Corresponsal"]
+    fields = ["Titulo", "Localidad", "Entrevistado", "Anecdota", "Corresponsal", "Imagen"]
     def test_func(self):
         exist = EntrevistasModel.objects.filter(Corresponsal=self.request.user.id, id=self.kwargs['pk'])
         return True if exist else False

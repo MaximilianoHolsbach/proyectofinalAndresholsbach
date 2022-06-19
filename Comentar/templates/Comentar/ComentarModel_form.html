@@ -1,0 +1,9 @@
+<a href="{% url 'EntrevistaList' %}">Volver a Lista</a>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <table>
+        {{ form.as_table }}
+    </table>
+    <br>
+    <input type="submit" value="Guardar">
+</form>

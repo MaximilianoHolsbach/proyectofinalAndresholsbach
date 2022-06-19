@@ -6,14 +6,16 @@
   <a href="{% url 'EntrevistaLogin' %}">Entrar</a>
   <a href="{% url 'EntrevistaSignUpView' %}">Crear Corresponsal</a>
 {% endif %}
-
+<a href="{% url 'ComentarList' %}">Lista de comentarios</a>
 {% if object_list %}
     {% for Entrevista in object_list %}
     <li>
          {{Entrevista.Titulo}} 
          <a href="{% url 'EntrevistaDetail' Entrevista.id %}">Detalles</a>
+         <a href="{% url 'ComentarCreate' Entrevista.id %}">Comentar </a>
          {% if user.is_authenticated %}
          <a href="{% url 'EntrevistaDelete' Entrevista.id %}">Borrar</a>
+         
          <a href="{% url 'EntrevistaUpdate' Entrevista.id %}">Actualizar</a>
          {% endif %}
     </li>

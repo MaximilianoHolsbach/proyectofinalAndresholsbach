@@ -13,5 +13,8 @@ class EntrevistasModel(models.Model):
     Corresponsal = models.ForeignKey(User, on_delete=models.CASCADE)
     Finalizado = models.DateField(auto_now_add=True)
 
+    def __str__(self):
+        return self.Titulo
+
 
 # Create your models here.

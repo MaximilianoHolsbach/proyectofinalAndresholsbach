@@ -1,6 +1,11 @@
-<a href="{% url 'EntrevistaList' %}">Volver a listas</a>
-<form method="post">
+{% extends 'Entrevistas\Entrevistainicio.html' %}
+{%block title%} Crear cuenta {% endblock %}
+{% block content %}
+
+<form method="post" class="crearcuenta">
     {% csrf_token %}
-    {{ form.as_ul }}
-    <input type="submit" value="Crear Corresponsal">
+    {{ form.as_p }}
+    <input class="Crear" type="submit" value="Crear Corresponsal">
 </form>
+
+{% endblock %}

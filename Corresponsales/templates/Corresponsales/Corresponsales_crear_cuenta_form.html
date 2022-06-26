@@ -1,7 +1,11 @@
-<a href="{% url 'EntrevistaList' %}">Volver entrevistas</a>
+{% extends 'Entrevistas\Entrevistainicio.html' %}
+{%block title%} Crear corresponsal {% endblock %}
+{% block content %}
 
 <form method="post">
     {% csrf_token %}
     {{ form.as_p }}
     <input type="submit" value="Crear Cuenta">
 </form>
+
+{% endblock %}

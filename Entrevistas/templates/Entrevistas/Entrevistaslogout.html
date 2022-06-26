@@ -1,2 +1,7 @@
-<h1>Esta fuera de su perfil</h1>
-<a href="{% url 'EntrevistaList' %}">Ir a listas</a>
+{% extends 'Entrevistas\Entrevistainicio.html' %}
+{%block title%} Fuera de perfil {% endblock %}
+{% block content %}
+<div class="logout">
+    <h1>Esta fuera de su perfil</h1>
+</div>
+{% endblock %}

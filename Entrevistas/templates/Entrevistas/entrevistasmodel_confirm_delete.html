@@ -1,6 +1,12 @@
-<form method="post">{% csrf_token %}
-    <p>La entrevista "{{ object.Titulo }}" se eliminará permamentemente</p>
-    <p>Seguro quiere realizar esta acción?</p>
-    {{form}}
-    <input type="submit" value="Confirmar">
-</form>
+{% extends 'Entrevistas\Entrevistainicio.html' %}
+{%block title%}{{ object.Titulo }}{% endblock %}
+{% block content %}
+<div class="eliminar" >
+    <form method="post">{% csrf_token %}
+        <p>La entrevista "{{ object.Titulo }}" se eliminará permamentemente</p>
+        <p>Seguro quiere realizar esta acción?</p>
+        {{form}}
+        <input class="btn btn-danger" type="submit" value="Confirmar">
+    </form>
+</div>
+{% endblock %}

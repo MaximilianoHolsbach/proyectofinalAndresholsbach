@@ -1,8 +1,13 @@
-<ul>
-    <h1>{{object.Nombre}}</h1>
-    <p>{{object.Comentario}}</p>
-    <h3>{{object.Email}}</h3>
-</ul>
+{% extends 'Entrevistas\Entrevistainicio.html' %}
+{%block title%} {{object.Titulo}} {% endblock %}
+{% block content %}
+<div class="comentariodetalle">
+    <ul>
+        <h1>{{object.Nombre}}</h1>
+        <p>{{object.Comentario}}</p>
+        <h3>{{object.Email}}</h3>
+    </ul>
+</div>
 
-<br>
-<a href="{% url 'ComentarList' %}">Ir a Comentarios</a>
+
+{% endblock %}

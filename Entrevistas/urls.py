@@ -2,7 +2,8 @@ from Entrevistas import views
 from django.urls import path
 
 urlpatterns = [
-    path('',views.EntrevistaList.as_view(), name="EntrevistaList"),
+    path('',views.Entrevistainicio.as_view(), name="Entrevistainicio"),
+    path('entevistaslistas/',views.EntrevistaList.as_view(), name="EntrevistaList"),
     path('crear/',views.EntrevistaCreate.as_view(), name="EntrevistaCreate"),
     path('detalle/<pk>/',views.EntrevistaDetail.as_view(), name="EntrevistaDetail"),
     path('editar/<pk>/',views.EntrevistaUpdate.as_view(), name="EntrevistaUpdate"),

@@ -1,7 +1,13 @@
-<a href="{% url 'CorresponsalesProfile' user.id %}">Volver a Perfiles</a>
-
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" value="Guardar">
-</form>
+{% extends 'Entrevistas\Entrevistainicio.html' %}
+{%block title%} Perfiles {% endblock %}
+{% block content %}
+<br>
+<a type="button" class="btn btn-secondary btn-lg" href="{% url 'CorresponsalesProfile' user.id %}">Volver a Perfiles</a>
+<div class="crearcuenta">
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Guardar">
+    </form>
+</div>
+{% endblock %}

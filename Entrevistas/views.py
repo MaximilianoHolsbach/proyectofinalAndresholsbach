@@ -9,11 +9,16 @@ from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib.auth.forms import UserCreationForm
 from django.views import View
 from Entrevistas.models import EntrevistasModel
+from django.db.models import Q
 
 class About(View):
-
     def get(self, request, *args, **kwargs):
         return render(request, "Entrevistas/Entrevistaabout.html", {})
+
+class Entrevistainicio(TemplateView):
+    def get(self, request, *args, **kwargs):
+        return render(request, "Entrevistas/Entrevistainicio.html", {})
+
 
 
 class EntrevistaList(ListView):
@@ -35,7 +40,7 @@ class EntrevistaCreate(LoginRequiredMixin, CreateView):
 class EntrevistaUpdate(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = EntrevistasModel
     success_url = reverse_lazy("EntrevistaList")
-    fields = ["Titulo", "Localidad", "Entrevistado", "Anecdota", "Corresponsal", "Imagen"]
+    fields = ["Titulo", "Localidad", "Entrevistado", "Anecdota", "Corresponsal"]
     def test_func(self):
         exist = EntrevistasModel.objects.filter(Corresponsal=self.request.user.id, id=self.kwargs['pk'])
         return True if exist else False

@@ -1,11 +1,14 @@
-<div>
+{% extends 'Entrevistas\Entrevistainicio.html' %}
+{%block title%} {{object.Titulo}} {% endblock %}
+{% block content %}
+<div class="detalles">
     <h1>{{object.Titulo}}</h1>
     <p>{{object.Localidad}}</p>
     <h3>{{object.Entrevistado}}</h3>
     <p>{{object.Anecdota}}</p>
-    <img src="{{object.Imagen.url}}">
+    <img src="{{object.Imagen.url}}" height="400px" width="400px">
     <p>{{object.Corresponsal}}</p>
     <p>{{object.Finalizado}}</p>
 </div>
-<br>
-<a href="{% url 'EntrevistaList' %}">Ir a listas</a>
+
+{% endblock %}

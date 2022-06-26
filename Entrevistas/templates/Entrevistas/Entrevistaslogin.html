@@ -1,8 +1,13 @@
-<form method="POST">
+{% extends 'Entrevistas\Entrevistainicio.html' %}
+{%block title%} Entrar {% endblock %}
+{% block content %}
+
+<form method="POST" class="login">
     {% csrf_token %}
-    {{form.as_ul}}
-    <button type="submit">Iniciar Sesión</button>
+    {{form.as_p}}
+    
+    <button class="entrar" type="submit">Iniciar Sesión</button>
 </form>
 
-<br>
-<a href="{% url 'EntrevistaList' %}">Ir a listas</a>
+
+{% endblock %}

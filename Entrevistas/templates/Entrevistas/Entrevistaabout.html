@@ -1,14 +1,39 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Soy</title>
-</head>
-<body>
-    <h1>Hola mundo!!!</h1>
-    <br>
-    <h3>Soy Andres Holsbach</h3>
-</body>
-</html>
+{% extends 'Entrevistas\Entrevistainicio.html' %}
+
+{%block title%} Somos {% endblock %}
+
+{% block content %}
+
+<div class="container text-white">
+    <div class="row-auto">
+        <br>
+        <h1>Saludos!!!</h1>
+        <br>
+    
+        <P>
+            <h5>Soy Andrés Maximiliano Holsbach, y este sitio es mi proyecto final para el curso de python en Coder House.</h5>
+        </P>
+        <p>
+            El proyecto trata de un blog donde se pueden generar corresponsales.<br>
+            Los mismos podran realizar distntas actividades dentro del sitio tales como: 
+             <li>
+                Crear corresponsal, y actualizarlo.
+             </li>
+             <li> 
+                Redactar entrevistas, cargar imagenes, editarlas, y borrarlas.
+             </li>
+             <li>
+                Leer comentarios sobre las entrevistas.
+             </li>
+             <li>
+                Leer y comentar en entrevistas sin registrarse.
+             </li>
+        </p>
+        <p>
+            Los vistitantes del sitio que no deseen registrarse podran leer las entrevistas y realizar comentarios sobre las mismas.
+        </p>
+
+    </div>
+</div>
+
+{% endblock %}

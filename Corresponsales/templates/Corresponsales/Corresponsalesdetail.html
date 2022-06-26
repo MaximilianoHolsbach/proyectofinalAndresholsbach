@@ -1,9 +1,25 @@
-<a href="{% url 'EntrevistaList' %}">Volver entrevistas</a>
-<a href="{% url 'CorresponsalesUpdate' user.id %}">Editar Perfil</a>
+{% extends 'Entrevistas\Entrevistainicio.html' %}
+{%block title%} Detalles de Perfiles {% endblock %}
+{% block content %}
+<br>
+<div class="dropdown" >
+    <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" >
+      OPCIONES
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+    <li><a class="dropdown-item" href="{% url 'EntrevistaList' %}">Volver entrevistas</a></li>
+    <li><a class="dropdown-item" href="{% url 'CorresponsalesUpdate' user.id %}">Editar Perfil</a></li>
+    </ul>
+</div>
 
-<ul>
-    <li>Nombre: {{object.first_name}}<li>
-    <li>Apellido: {{object.last_name}}<li>
-    <li>Correo electronico: {{object.email}} </li>
-    <li>Nombre de Usuario: {{object.username}}</li>
-</ul>
+
+<div class="detallesperfiles">
+    <table>   
+        <ul>Nombre: {{object.first_name}}</ul>
+        <ul>Apellido: {{object.last_name}}</ul>
+        <ul>Correo electronico: {{object.email}}</ul>
+        <ul>Nombre de Usuario: {{object.username}}</ul>
+    </table>
+</div>
+
+{% endblock %}

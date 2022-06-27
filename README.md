@@ -3,6 +3,9 @@ Proyecto final para curso Python en coderhouse
 
 <h1>Aplicación web creada para el trabajo final del curso de Python en Coder House<h1>
 
+<h2>Video tutorial del sitio<h2>
+<h3>"https://youtu.be/UnaSn9nxEn4"<h3>
+  
 <h3>Esta app contiene:<h3>
   <p>-Proyecto : Viajes</p>
  <p> -App : Entrevistas</p>
@@ -18,3 +21,5 @@ Proyecto final para curso Python en coderhouse
 
  <p>([http://localhost:8000/]) El inicio de la app esta en esta dirección</p>
  <p>[http://localhost:8000/admin]Al admin pueden ingresar desde esta dirección.</p>
+
+  
